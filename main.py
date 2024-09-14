@@ -36,7 +36,7 @@ def postmanytimes():
         data["username"] = randomword()
         print(f"Request sent: {post().status_code}")
         
-        time.sleep(0.2)
+        time.sleep(0.4)
 
 
 thread_1 = threading.Thread(target=postmanytimes)
