@@ -34,9 +34,12 @@ def postmanytimes():
     for i in range(int(amount)):
         data["content"] = randomword()
         data["username"] = randomword()
-        print(f"Request sent: {post().status_code}")
-        
-        time.sleep(0.4)
+        res = post()
+        print(f"Request sent: {res.status_code}")
+        if res.status_code.startswith("4") or res.status_code.startswith("5"):
+            time.sleep(1.5)
+        else:
+            time.sleep(0.4)
 
 
 thread_1 = threading.Thread(target=postmanytimes)
